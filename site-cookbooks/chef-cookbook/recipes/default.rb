@@ -34,17 +34,13 @@ end
 bash "set values for pyenv" do
   cwd "/home/#{user}"
   code <<-EOC
-    echo "
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-    if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-    " >> .#{shell}rc
+    echo '
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/.pyenv/bin:$PATH"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+' >> .#{shell}rc
   EOC
   not_if "grep 'PYENV_ROOT' .#{shell}rc"
-end
-
-bash "restart shell" do
-  code 'exec "$SHELL"'
 end
 
