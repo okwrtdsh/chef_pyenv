@@ -2,7 +2,7 @@
   "run_list": [
     "chef-cookbook"
   ],
-  "chef-repo":{
+  "chef_pyenv":{
     "username":"user",
     "shell":"bash"
   }
