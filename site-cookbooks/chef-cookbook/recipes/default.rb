@@ -37,8 +37,8 @@ bash "set values for pyenv" do
     echo '
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.pyenv/bin:$PATH"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 ' >> .#{shell}rc
   EOC
   not_if "grep 'PYENV_ROOT' .#{shell}rc"
