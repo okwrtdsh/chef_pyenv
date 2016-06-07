@@ -37,6 +37,6 @@ pyenv local hoge # hogeディレクトリ以下に適用
 $ python --version # 仮想環境外
 Python 2.7.11
 $ cd hoge
-$ python --version # 仮想環境内
+(hoge)$ python --version # 仮想環境内
 Python 3.5.0
 ```
